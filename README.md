@@ -11,7 +11,7 @@ A Notification Plugin for [Nagios](https://www.nagios.org/) and compatible softw
 
 3. Create the command definitions in your Nagios configuration:
 
-    ```
+```
     define command {
         command_name notify-host-by-dadapush
         command_line /usr/local/nagios/libexec/nagios-dadapush.sh -a "$NOTIFICATIONTYPE$" -b "$HOSTNAME$" -c "$HOSTSTATE$" -d "$HOSTOUTPUT$" -T "DADAPUSH_CHANNEL_TOKEN"
@@ -25,7 +25,7 @@ A Notification Plugin for [Nagios](https://www.nagios.org/) and compatible softw
 
 4. Create the contact definition in your Nagios configuration:
 
-    ```
+```
     define contact {
         contact_name                            dadapush
         alias                                   dadapush
@@ -40,7 +40,7 @@ A Notification Plugin for [Nagios](https://www.nagios.org/) and compatible softw
 
 5. Add the contact to a contact group in your Nagios configuration:
 
-    ```
+```
     define contactgroup{
         contactgroup_name       network-admins
         alias                   Network Administrators
