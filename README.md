@@ -48,6 +48,8 @@ A Notification Plugin for [Nagios](https://www.nagios.org/) and compatible softw
     }
 ```
 
+read full [Setup Nagios DaDaPush Notification Plugin](https://blog.dadapush.com/2019/08/04/send-nagios-alert-notification-using-dadapush/)
+
 ## Other Information
 
 This script has been tested on multiple servers with different versions of curl.
