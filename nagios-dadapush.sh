@@ -8,7 +8,7 @@ CURL_OPTS=""
 
 
 json_escape () {
-    printf '%s' "$1" | python -c 'import json,sys; print(json.dumps(sys.stdin.read()))'
+    printf '%s' "$1" | python -c 'import json,sys; print(json.dumps(sys.stdin.read()).replace("\\\\n","\\n"))'
 }
 
 send_message() {
@@ -70,11 +70,11 @@ TITLE=""
 CONTENT=""
 
 if [ -x $HOSTSTATE ]; then
-  TITLE="[${NOTIFICATIONTYPE}]: ${CLIENT} ${SERVICEDESC}"
-  CONTENT="[${NOTIFICATIONTYPE}]: ${CLIENT} ${SERVICEDESC} is ${SERVICESTATE}. ${SERVICEOUTPUT}"
+  TITLE="[${NOTIFICATIONTYPE}] ${CLIENT} ${SERVICEDESC}"
+  CONTENT="[${NOTIFICATIONTYPE}] ${CLIENT} ${SERVICEDESC} is ${SERVICESTATE}.\n${SERVICEOUTPUT}"
 else
-  TITLE="[${NOTIFICATIONTYPE}]: ${CLIENT}"
-  CONTENT="[${NOTIFICATIONTYPE}]: ${CLIENT} is ${HOSTSTATE}. ${HOSTOUTPUT}"
+  TITLE="[${NOTIFICATIONTYPE}] ${CLIENT}"
+  CONTENT="[${NOTIFICATIONTYPE}] ${CLIENT} is ${HOSTSTATE}.\n${HOSTOUTPUT}"
 fi
 
 TITLE=`json_escape "$TITLE"`
